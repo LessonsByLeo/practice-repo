@@ -10,7 +10,6 @@ public class InvalidOrderException extends Exception {
     public static final String UNKNOWN_SKU = "Unknown sku";
     public static final String NOT_ENOUGH_INVENTORY = "Not enough inventory for sku";
 
-
     public InvalidOrderException(List<InvalidItem> invalidItems) {
         super(INVALID_ORDER);
         this.invalidItems = invalidItems;
@@ -19,5 +18,5 @@ public class InvalidOrderException extends Exception {
     public List<InvalidItem> getInvalidItems() {
         return invalidItems;
     }
-    
+
 }

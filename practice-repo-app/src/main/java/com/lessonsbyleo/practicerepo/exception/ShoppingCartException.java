@@ -1,20 +1,26 @@
 package com.lessonsbyleo.practicerepo.exception;
 
+import com.lessonsbyleo.practicerepo.data.InvalidItem;
+
+import java.util.List;
+
 public class ShoppingCartException extends Exception {
-    private InvalidOrderException invalidOrderException;
-    private ZipCodeUnavailableException zipCodeUnavailableException;
+    private List<InvalidItem> invalidItems;
 
     public ShoppingCartException(InvalidOrderException invalidOrderException) {
         super(invalidOrderException.getMessage());
-        this.invalidOrderException = invalidOrderException;
+        this.invalidItems = invalidOrderException.getInvalidItems();
     }
 
     public ShoppingCartException(ZipCodeUnavailableException zipCodeUnavailableException){
         super(zipCodeUnavailableException.getMessage());
-        this.zipCodeUnavailableException = zipCodeUnavailableException;
     }
 
-    public InvalidOrderException getInvalidOrderException() {
-        return invalidOrderException;
+    public List<InvalidItem> getInvalidItems() {
+        return invalidItems;
+    }
+
+    public void setInvalidItems(List<InvalidItem> invalidItems) {
+        this.invalidItems = invalidItems;
     }
 }

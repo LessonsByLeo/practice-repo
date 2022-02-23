@@ -41,3 +41,9 @@ Feature: The shopping cart calculates the Customers order.
     And the customers sales tax has already been saved internally
     When the customer requests the total bill of the shopping cart order
     Then the shopping cart calculates customers the total bill
+
+  Scenario: The Customer is ready for their orders total
+    Given the customer has an order in their shopping cart
+    And the customers sales tax has already been saved internally
+    When the customer requests the total bill of the shopping cart order
+    Then the shopping cart calculates customers the total bill
