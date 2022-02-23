@@ -1,0 +1,32 @@
+sales-tax:
+  internalStubMap:
+    11111-111: 1.0825
+    11115-111: 1.1
+    12345-123: 1.074
+  externalStubMap:
+    10000-111: 1.0925
+    10005-111: 1.065
+    12225-123: 1.066
+
+inventory:
+  stubMap:
+    sku_0:
+      sku: sku_0
+      description: "item num: 1"
+      cost: 1.75
+      quantity: 3
+    sku_1:
+      sku: sku_1
+      description: "item num: 2"
+      cost: 2.50
+      quantity: 5
+    sku_2:
+      sku: sku_2
+      description: "item num: 3"
+      cost: 5.00
+      quantity: 6
+    sku_3:
+      sku: sku_3
+      description: "item num: 4"
+      cost: 4.00
+      quantity: 3
