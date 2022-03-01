@@ -2,25 +2,27 @@ package com.lessonsbyleo.practicerepo.webclient.factory;
 
 import com.lessonsbyleo.practicerepo.webclient.impl.StubbedSalesTaxWebclient;
 import com.lessonsbyleo.practicerepo.webclient.inf.SalesTaxWebclient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import static com.lessonsbyleo.practicerepo.util.ShoppingCartConstants.STUBBED_WEBCLIENT;
 
-@Component
-public class SalesTaxWebclientFactory {
-    @Autowired(required = false)
-    private StubbedSalesTaxWebclient stubbedInternalSalesTaxWebclient;
+public class DevSalesTaxWebclientFactory implements SalesTaxWebclientFactory {
+    private final StubbedSalesTaxWebclient stubbedInternalSalesTaxWebclient;
+    private final StubbedSalesTaxWebclient stubbedExternalSalesTaxWebclient;
 
-    @Autowired(required = false)
-    private StubbedSalesTaxWebclient stubbedExternalSalesTaxWebclient;
+    private final SalesTaxWebclient internalWebclient;
+    private final SalesTaxWebclient externalWebclient;
 
-    @Autowired
-    private SalesTaxWebclient internalWebclient;
+    public DevSalesTaxWebclientFactory(StubbedSalesTaxWebclient stubbedInternalSalesTaxWebclient,
+                                       StubbedSalesTaxWebclient stubbedExternalSalesTaxWebclient,
+                                       SalesTaxWebclient internalWebclient,
+                                       SalesTaxWebclient externalWebclient) {
+        this.stubbedInternalSalesTaxWebclient = stubbedInternalSalesTaxWebclient;
+        this.stubbedExternalSalesTaxWebclient = stubbedExternalSalesTaxWebclient;
+        this.internalWebclient = internalWebclient;
+        this.externalWebclient = externalWebclient;
+    }
 
-    @Autowired
-    private SalesTaxWebclient externalWebclient;
-
+    @Override
     public SalesTaxWebclient getInternalSalesTaxWebclient(String webclientType) {
         if (webclientType.equals(STUBBED_WEBCLIENT)) {
             return stubbedInternalSalesTaxWebclient;
@@ -29,6 +31,7 @@ public class SalesTaxWebclientFactory {
         }
     }
 
+    @Override
     public SalesTaxWebclient getExternalSalesTaxWebclient(String webclientType) {
         if (webclientType.equals(STUBBED_WEBCLIENT)) {
             return stubbedExternalSalesTaxWebclient;
