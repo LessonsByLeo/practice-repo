@@ -21,6 +21,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.ConfigDataApplicationContextInitializer;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -35,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.*;
         classes = { PracticeRepoBDDConfig.class },
         initializers = { ConfigDataApplicationContextInitializer.class })
 @ActiveProfiles({"stubbed"})
+
 //@DataJpaTest
 public class CommonScenariosSteps {
 

@@ -53,6 +53,4 @@ public class PracticeRepoConfig {
                                                              SalesTaxWebclient externalWebclient){
         return new DevSalesTaxWebclientFactory(stubbedInternalSalesTaxWebclient, stubbedExternalSalesTaxWebclient, internalWebclient, externalWebclient);
     }
-
-
 }

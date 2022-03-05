@@ -30,6 +30,8 @@ public class StubbedPracticeRepoConfig {
     public StubbedSalesTaxWebclient stubbedInternalSalesTaxWebclient(StubbedSalesTaxConfiguration stubbedSalesTaxConfiguration,
                                                                      ObjectWriter objectWriter) throws JsonProcessingException {
         Map<String, Double> stubbedMap = stubbedSalesTaxConfiguration.getInternalStubMap();
+        logger.debug("stubbedSalesTaxConfiguration:\n{}",objectWriter.writeValueAsString(stubbedSalesTaxConfiguration));
+
         logger.debug("stubbedInternalSalesTaxWebclient Map:\n{}",objectWriter.writeValueAsString(stubbedMap));
         return new StubbedSalesTaxWebclient(stubbedMap);
     }
@@ -38,6 +40,8 @@ public class StubbedPracticeRepoConfig {
     public StubbedSalesTaxWebclient stubbedExternalSalesTaxWebclient(StubbedSalesTaxConfiguration stubbedSalesTaxConfiguration,
                                                                      ObjectWriter objectWriter) throws JsonProcessingException {
         Map<String, Double> stubbedMap = stubbedSalesTaxConfiguration.getExternalStubMap();
+        logger.debug("stubbedSalesTaxConfiguration:\n{}",objectWriter.writeValueAsString(stubbedSalesTaxConfiguration));
+
         logger.info("stubbedExternalSalesTaxWebclient Map:\n{}",objectWriter.writeValueAsString(stubbedMap));
         return new StubbedSalesTaxWebclient(stubbedMap);
     }
@@ -46,6 +50,8 @@ public class StubbedPracticeRepoConfig {
     public StubbedInventoryWebclient stubbedInventoryWebclient(StubbedInventoryConfiguration stubbedInventoryConfiguration,
                                                                ObjectWriter objectWriter) throws JsonProcessingException {
         Map<String, Item> stubbedInventoryMap = stubbedInventoryConfiguration.getStubMap();
+        logger.debug("stubbedInventoryConfiguration:\n{}",objectWriter.writeValueAsString(stubbedInventoryConfiguration));
+
         logger.info("\n{}",objectWriter.writeValueAsString(stubbedInventoryMap));
         return new StubbedInventoryWebclient(stubbedInventoryMap);
     }
